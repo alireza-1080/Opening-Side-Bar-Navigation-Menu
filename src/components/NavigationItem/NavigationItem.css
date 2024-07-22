@@ -57,7 +57,7 @@
     border-radius: 50%;
     position: absolute;
     right: -16px;
-
+    transition: all 250ms ease-out;
 
     display: flex;
     justify-content: center;
@@ -76,4 +76,10 @@
 
 .item-container-changes {
     grid-template-columns: auto 0px !important;
+}
+
+.notification-counter-changes{
+    transform: scale(70%);
+    right: calc(50% - 25px) !important;
+    top: 10px;
 }

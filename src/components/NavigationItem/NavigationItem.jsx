@@ -19,10 +19,16 @@ function NavigationItem({title ,icon ,notificationCounter, isItChecked}) {
             titleContainerRef.current.classList.remove("title-changes");
             iconContainerRef.current.classList.remove("icon-changes");
             navigationItemContainerRef.current.classList.remove("item-container-changes"); 
+            if(notificationCounterContainerRef.current) {
+                notificationCounterContainerRef.current.classList.remove("notification-counter-changes")
+            } 
         } else {
             titleContainerRef.current.classList.add("title-changes");
             iconContainerRef.current.classList.add("icon-changes");
-            navigationItemContainerRef.current.classList.add("item-container-changes");            
+            navigationItemContainerRef.current.classList.add("item-container-changes");   
+            if(notificationCounterContainerRef.current) {
+                notificationCounterContainerRef.current.classList.add("notification-counter-changes")
+            }  
         }
     },[isTheCheckBoxChecked])
 

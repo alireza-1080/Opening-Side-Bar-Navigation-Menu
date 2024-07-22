@@ -25,22 +25,26 @@ function NavigationMenu() {
 
     const [isTheCheckBoxChecked, setIsTheCheckBoxChecked] = useState(true)
 
+    const NavigationMenuContainerRef = useRef(null);
+    const openingElementIconRef = useRef(null);
+
     const checkBoxHandler = () => {
         setIsTheCheckBoxChecked(!isTheCheckBoxChecked)
     }
 
-    const openingElementIconRef = useRef(null);
 
     useEffect(() => {
         if (isTheCheckBoxChecked) {
             openingElementIconRef.current.classList.remove("opening-icon-changes")
+            NavigationMenuContainerRef.current.classList.add("navigation-menu-container-changes")
         } else {
             openingElementIconRef.current.classList.add("opening-icon-changes")
+            NavigationMenuContainerRef.current.classList.remove("navigation-menu-container-changes")
         }
     },[isTheCheckBoxChecked])
 
     return (
-        <div className="navigation-menu-container">
+        <div className="navigation-menu-container" ref={NavigationMenuContainerRef}>
             <input type="checkbox" name="" id="check" value={isTheCheckBoxChecked} onClick={() => checkBoxHandler()} />
             <div className="opening-element" ref={openingElementIconRef}>
                 <label htmlFor="check">
